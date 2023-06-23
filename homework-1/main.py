@@ -16,9 +16,9 @@ with open('north_data/customers_data.csv', 'r') as f:
     next(reader)  # Пропуск заголовка
     for row in reader:
         cursor.execute(
-            "INSERT INTO customers (company_name, contact_name) "
-            "VALUES (%s, %s)",
-            (row[1], row[2])
+            "INSERT INTO customers (customer_id, company_name, contact_name) "
+            "VALUES (%s, %s, %s)",
+            (row[0], row[1], row[2])
         )
 
 # Заполнение таблицы employees
@@ -41,9 +41,9 @@ with open('north_data/orders_data.csv', 'r') as f:
     next(reader)  # Пропуск заголовка
     for row in reader:
         cursor.execute(
-            "INSERT INTO orders (customer_id,employee_id,order_date,ship_city) "
-            "VALUES (%s, %s, %s, %s)",
-            (row[1], row[2], row[3], row[4]) # исправляем индексы столбцов и пропускаем order_id
+            "INSERT INTO orders (order_id, customer_id,employee_id,order_date,ship_city) "
+            "VALUES (%s, %s, %s, %s, %s)",
+            (row[0], row[1], row[2], row[3], row[4]) # исправляем индексы столбцов и пропускаем order_id
         )
 
 
