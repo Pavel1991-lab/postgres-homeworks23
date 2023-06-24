@@ -1,6 +1,6 @@
 -- SQL-команды для создания таблиц
 CREATE TABLE customers (
-  customer_id VARCHAR(100) NOT NULL,
+  customer_id SERIAL PRIMARY KEY,
   company_name VARCHAR(100) NOT NULL,
   contact_name VARCHAR(50) NOT NULL
 );
@@ -16,9 +16,9 @@ CREATE TABLE employees (
 
 
 CREATE TABLE orders (
-    order_id INTEGER NOT NULL,
-    customer_id VARCHAR(50) NOT NULL,
+    order_id SERIAL PRIMARY KEY,
+    customer_id INTEGER NOT NULL,
     employee_id INTEGER NOT NULL,
     order_date DATE NOT NULL,
-    ship_city VARCHAR(160) NOT NULL
+    ship_city VARCHAR(50) NOT NULL
 );
